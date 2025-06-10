@@ -89,11 +89,6 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.card.clicked {
-  background: rgba(255, 100, 100, 0.3);
-  border-color: #ff6b6b;
-}
-
 .card img {
   width: 120px;
   height: 120px;

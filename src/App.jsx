@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Scoreboard from "./components/Scoreboard";
 import GameBoard from "./components/GameBoard";
 import GameOverModal from "./components/GameOverModal";
@@ -56,6 +56,23 @@ function App() {
     fetchPokemon();
   }, []);
 
+  // Shuffle cards function
+  const shuffleCards = useCallback(() => {
+    setPokemon((prevPokemon) => {
+      const shuffled = [...prevPokemon].sort(() => Math.random() - 0.5);
+      return shuffled;
+    });
+  }, []);
+
+  // Check for round completion
+  useEffect(() => {
+    if (clickedPokemon.size === pokemon.length && pokemon.length > 0) {
+      setRound((prev) => prev + 1);
+      setClickedPokemon(new Set());
+      fetchPokemon();
+    }
+  }, [clickedPokemon.size, pokemon.length]);
+
   const handleCardClick = (pokemonId) => {
     if (clickedPokemon.has(pokemonId)) {
       setShowGameOver(true);
@@ -68,6 +85,9 @@ function App() {
     if (currentScore + 1 > bestScore) {
       setBestScore(currentScore + 1);
     }
+
+    // Shuffle cards after a short delay
+    setTimeout(shuffleCards, 300);
   };
 
   const handleRestart = () => {

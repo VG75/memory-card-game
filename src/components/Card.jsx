@@ -1,8 +1,7 @@
 import React from "react";
 
 function Card({ pokemon, onClick, isClicked }) {
-  // Placeholder data for now
-  const placeholderPokemon = {
+  const displayPokemon = {
     id: pokemon?.id || 1,
     name: pokemon?.name || "Pokemon",
     image: pokemon?.image || "https://via.placeholder.com/120",
@@ -10,13 +9,10 @@ function Card({ pokemon, onClick, isClicked }) {
   };
 
   return (
-    <div
-      className={`card ${isClicked ? "clicked" : ""}`}
-      onClick={() => onClick(placeholderPokemon.id)}
-    >
-      <img src={placeholderPokemon.image} alt={placeholderPokemon.name} />
-      <h3>{placeholderPokemon.name}</h3>
-      <p>Type: {placeholderPokemon.type}</p>
+    <div className="card" onClick={() => onClick(displayPokemon.id)}>
+      <img src={displayPokemon.image} alt={displayPokemon.name} />
+      <h3>{displayPokemon.name}</h3>
+      <p>Type: {displayPokemon.type}</p>
     </div>
   );
 }

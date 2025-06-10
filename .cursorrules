@@ -1,0 +1,29 @@
+# React Memory Game Project Rules
+
+## Project Context
+This is a Memory Card Game built with React + Vite, converted from vanilla JavaScript.
+The game uses Pokemon API to fetch card data and implements memory game mechanics.
+
+## Key Files
+- docs/conversion-guide.md: Complete conversion guide
+- src/App.jsx: Main game component
+- src/components/: Individual game components
+- src/styles/: CSS modules or styled components
+
+## Coding Standards
+- Use functional components with hooks
+- Implement proper error handling for API calls
+- Use localStorage for best score persistence
+- Follow React best practices for state management
+- Write clean, readable code with proper comments
+
+## API Integration
+- Pokemon API: https://pokeapi.co/api/v2/pokemon/
+- Fetch 12 random Pokemon per round
+- Handle loading states and errors gracefully
+
+## When helping with code:
+1. Reference the conversion guide in docs/
+2. Suggest React patterns over vanilla JS
+3. Include proper error handling
+4. Explain the reasoning behind suggestions
